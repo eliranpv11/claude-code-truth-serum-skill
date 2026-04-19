@@ -68,7 +68,7 @@ Every decision is evaluated in this sequence:
 From within a Claude Code session, two commands and you're done:
 
 ```
-/plugin marketplace add eliranpv11/truth-serum
+/plugin marketplace add eliranpv11/claude-code-truth-serum-skill
 ```
 
 ```
@@ -93,7 +93,7 @@ Available across **all projects** on your machine:
 ```bash
 mkdir -p ~/.claude/skills
 
-git clone https://github.com/eliranpv11/truth-serum.git \
+git clone https://github.com/eliranpv11/claude-code-truth-serum-skill.git \
   ~/.claude/skills/truth-serum
 ```
 
@@ -106,7 +106,7 @@ For a **specific repo only**, shared with your entire team:
 ```bash
 mkdir -p .claude/skills
 
-git clone https://github.com/eliranpv11/truth-serum.git \
+git clone https://github.com/eliranpv11/claude-code-truth-serum-skill.git \
   .claude/skills/truth-serum
 
 # Commit to share with everyone
@@ -121,7 +121,7 @@ git commit -m "Add Truth Serum working standard"
 ```bash
 mkdir -p ~/.claude/skills/truth-serum && \
   curl -o ~/.claude/skills/truth-serum/SKILL.md \
-  https://raw.githubusercontent.com/eliranpv11/truth-serum/main/SKILL.md
+  https://raw.githubusercontent.com/eliranpv11/claude-code-truth-serum-skill/main/SKILL.md
 ```
 
 ---
