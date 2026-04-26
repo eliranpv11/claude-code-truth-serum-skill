@@ -8,18 +8,18 @@ A communication discipline for Claude Code — built for developers who need Cla
 
 ---
 
-## The Idea
+## The Problem
 
-The name says it all.
+Left unconstrained, Claude Code distorts its own status in predictable ways:
 
-Truth Serum forces Claude to operate with complete honesty:
-- If something is broken — it says **broken**, not "almost there"
-- If something is partial — it says **partial**, not "done"
-- If information is missing — it **stops and asks**, never guesses
-- Before committing — it waits for your **explicit approval**
-- Every claim comes with **evidence**: `file:line` + quoted code or actual test output
+- **Aspirational reporting** — says "done" when something is partial, incomplete, or untested
+- **Confidence without evidence** — claims "it should work" without showing any proof
+- **Hidden bad news** — minimizes or buries problems rather than surfacing them clearly
+- **Silent guessing** — fills in missing information independently, then runs with the wrong interpretation
+- **Invisible scope creep** — silently expands the task without flagging the new boundary
+- **Phantom test coverage** — reports "tests pass" without showing the actual test output
 
-No invented answers. No "it should work." No aspirational status updates.
+Truth Serum eliminates all of these failure modes.
 
 ---
 
@@ -69,19 +69,31 @@ It does **not** own: how code is written, priority order, or coding methodology 
 
 ### Option A — Claude Code Plugin (recommended)
 
+In a Claude Code session, run:
+
 ```
 /plugin marketplace add eliranpv11/claude-code-truth-serum-skill
 /plugin install truth-serum@truth-serum
 ```
 
-### Option B — Claude.ai (Web UI)
+The skill is installed globally across all your Claude Code sessions immediately.
 
-1. Download [`truth-serum.skill`](./truth-serum.skill)
+---
+
+### Option B — Claude.ai (Web & Desktop)
+
+1. Download [`truth-serum.skill`](./truth-serum.skill) from this repository
 2. Go to **claude.ai → Customize → Skills**
-3. Click **+** → **Create skill** → Upload the `.skill` file
+3. Click **+** → **Create skill** → Upload the `truth-serum.skill` file
 4. Toggle it on ✅
 
-### Option C — Personal install
+The skill is now active for all conversations on Claude.ai.
+
+---
+
+### Option C — Personal install (all your projects)
+
+Install once, available across all local Claude Code projects:
 
 ```bash
 mkdir -p ~/.claude/skills
@@ -89,23 +101,68 @@ git clone https://github.com/eliranpv11/claude-code-truth-serum-skill.git \
   ~/.claude/skills/truth-serum
 ```
 
+---
+
 ### Option D — Project install (shared with team)
+
+Install in a project repo so the whole team uses it:
 
 ```bash
 mkdir -p .claude/skills
 git clone https://github.com/eliranpv11/claude-code-truth-serum-skill.git \
   .claude/skills/truth-serum
 git add .claude/skills/
-git commit -m "Add Truth Serum skill"
+git commit -m "chore: add Truth Serum skill"
 ```
 
-### Option E — One-liner
+---
+
+### Option E — One-liner (no git required)
+
+Download just the skill file directly:
 
 ```bash
 mkdir -p ~/.claude/skills/truth-serum && \
   curl -o ~/.claude/skills/truth-serum/SKILL.md \
   https://raw.githubusercontent.com/eliranpv11/claude-code-truth-serum-skill/main/SKILL.md
 ```
+
+---
+
+### Option F — CLAUDE.md paste (zero-install, works everywhere)
+
+The `CLAUDE.md` file contains the complete skill content without YAML frontmatter — ready to paste directly into any project.
+
+1. Copy the contents of [`CLAUDE.md`](./CLAUDE.md)
+2. Paste into your project's `CLAUDE.md` file (merge with existing content if needed)
+
+This approach requires no installation and works in any environment that reads `CLAUDE.md`.
+
+---
+
+### Option G — Cursor IDE
+
+1. Copy [`.cursor/rules/truth-serum.mdc`](./.cursor/rules/truth-serum.mdc) to your project's `.cursor/rules/` directory
+2. Cursor will apply the rule automatically on every request (`alwaysApply: true`)
+
+Or install manually:
+
+```bash
+mkdir -p .cursor/rules
+curl -o .cursor/rules/truth-serum.mdc \
+  https://raw.githubusercontent.com/eliranpv11/claude-code-truth-serum-skill/main/.cursor/rules/truth-serum.mdc
+```
+
+---
+
+## How to Use
+
+Once installed, Truth Serum applies automatically. Claude will self-enforce honest reporting, evidence standards, and the commit gate without any prompting.
+
+You can also invoke it explicitly:
+
+> "Apply truth-serum standards to this session."
+> "Report status per truth-serum."
 
 ---
 
@@ -128,8 +185,8 @@ Truth Serum is part of a three-skill suite — each owns a distinct layer:
 | Skill | Layer | Use when |
 |---|---|---|
 | **truth-serum** | Honesty & communication | You need Claude to report reality accurately |
-| **[code-discipline](https://github.com/eliranpv11/code-discipline)** | Coding methodology | You need Claude to write code the right way |
-| **[autonomous-agent-protocol](https://github.com/eliranpv11/autonomous-agent-protocol)** | Execution framework | Claude runs without mid-task human approvals |
+| **[code-discipline](https://github.com/eliranpv11/code-discipline-skills)** | Coding methodology | You need Claude to write code the right way |
+| **[autonomous-agent-protocol](https://github.com/eliranpv11/autonomous-agent-protocol-skill)** | Execution framework | Claude runs without mid-task human approvals |
 
 Load all three for the complete stack. Load any one standalone — each works independently.
 
@@ -139,6 +196,7 @@ Load all three for the complete stack. Load any one standalone — each works in
 
 - ✅ Claude Code (CLI)
 - ✅ Claude.ai (Web & Desktop)
+- ✅ Cursor IDE
 - ✅ Any agent supporting the Agent Skills open standard
 
 ---
@@ -146,10 +204,19 @@ Load all three for the complete stack. Load any one standalone — each works in
 ## File Structure
 
 ```
-truth-serum/
-├── README.md          ← You are here
-├── SKILL.md           ← The skill itself
-└── truth-serum.skill  ← Packaged for claude.ai upload
+claude-code-truth-serum-skill/
+├── SKILL.md                        ← Install as a Claude Code skill
+├── CLAUDE.md                       ← Copy into any project's CLAUDE.md
+├── README.md                       ← This file
+├── EXAMPLES.md                     ← Real before/after examples
+├── LICENSE                         ← MIT
+├── truth-serum.skill               ← Packaged for claude.ai upload
+├── .claude-plugin/
+│   ├── plugin.json                 ← Plugin metadata
+│   └── marketplace.json            ← Marketplace listing
+└── .cursor/
+    └── rules/
+        └── truth-serum.mdc         ← Cursor IDE rules (alwaysApply: true)
 ```
 
 ---

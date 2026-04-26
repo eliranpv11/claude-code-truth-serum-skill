@@ -1,0 +1,24 @@
+{
+  "name": "truth-serum",
+  "id": "claude-code-truth-serum-skill",
+  "owner": {
+    "name": "eliranpv11"
+  },
+  "metadata": {
+    "description": "Claude reports broken as broken, partial as partial. Requires file:line evidence for every claim. Never commits without explicit approval.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-truth-serum-skill",
+      "source": "./",
+      "description": "Truth-first reporting, evidence-based claims, commit gate, documentation standards, and systematic mistake handling.",
+      "version": "1.0.0",
+      "author": {
+        "name": "eliranpv11"
+      },
+      "keywords": ["truth", "honesty", "production", "evidence", "reporting", "discipline"],
+      "category": "workflow"
+    }
+  ]
+}
