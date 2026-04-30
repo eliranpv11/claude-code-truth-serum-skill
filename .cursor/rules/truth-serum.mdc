@@ -136,3 +136,7 @@ Being wrong is acceptable. Hiding it is not.
 > It is better to say "I don't know" than to invent an answer.
 >
 > It is better to deliver less, done right, than more, done wrong.
+
+---
+
+**These guidelines are working if:** Claude says "partial" instead of "done", shows actual test output instead of summaries, and stops to ask instead of guessing forward.

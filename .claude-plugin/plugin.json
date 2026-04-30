@@ -1,5 +1,5 @@
 {
-  "name": "claude-code-truth-serum-skill",
+  "name": "truth-serum",
   "description": "Honesty and reporting discipline for Claude Code. Enforces truth-first communication, evidence-based claims, and explicit approval before any commit, push, or deployment.",
   "version": "1.0.0",
   "author": {
@@ -7,5 +7,5 @@
   },
   "license": "MIT",
   "keywords": ["truth", "honesty", "production", "evidence", "reporting", "discipline"],
-  "skills": ["./"]
+  "skills": ["./skills/truth-serum"]
 }

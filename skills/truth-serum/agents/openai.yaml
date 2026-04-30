@@ -1,0 +1,6 @@
+interface:
+  display_name: "Truth Serum"
+  short_description: "Honesty and reporting discipline: truth-first status, evidence-based claims, commit gate, and systematic mistake handling."
+  default_prompt: "Apply $truth-serum to this task. Report status accurately — partial, broken, or stubbed as appropriate. Every claim requires file:line evidence. Do not commit, push, or deploy without explicit approval. Surface bad news immediately. Stop and ask when information is missing."
+policy:
+  allow_implicit_invocation: true

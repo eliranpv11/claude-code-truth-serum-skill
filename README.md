@@ -36,7 +36,7 @@ Truth Serum is a **communication and honesty layer**. It controls:
 | Mistake handling | Acknowledge, root-cause, fix systemically |
 | Scope discipline | Document discovered issues, don't silently expand |
 
-It does **not** own: how code is written, priority order, or coding methodology — those belong to **code-discipline**.
+It does **not** own: how code is written, priority order, or coding methodology.
 
 ---
 
@@ -168,27 +168,12 @@ You can also invoke it explicitly:
 
 ## Verify Installation
 
-Start a Claude Code session and ask:
+Start a Claude Code session and give Claude a real task — for example, ask it to implement a feature, then ask for status. Truth Serum is working if Claude:
 
-```
-What working standard are you following?
-```
-
-Claude should describe truth-first reporting, evidence requirements, the commit gate, and the one-step-at-a-time principle.
-
----
-
-## The Skill Suite
-
-Truth Serum is part of a three-skill suite — each owns a distinct layer:
-
-| Skill | Layer | Use when |
-|---|---|---|
-| **truth-serum** | Honesty & communication | You need Claude to report reality accurately |
-| **[code-discipline](https://github.com/eliranpv11/code-discipline-skills)** | Coding methodology | You need Claude to write code the right way |
-| **[autonomous-agent-protocol](https://github.com/eliranpv11/autonomous-agent-protocol-skill)** | Execution framework | Claude runs without mid-task human approvals |
-
-Load all three for the complete stack. Load any one standalone — each works independently.
+- Says **"partial"** instead of **"done"** when something is incomplete
+- Pastes **actual test runner output** instead of "tests pass"
+- Shows a **staged diff** and waits for **"commit now"** before committing
+- **Stops and asks** instead of guessing when information is missing
 
 ---
 
@@ -205,18 +190,23 @@ Load all three for the complete stack. Load any one standalone — each works in
 
 ```
 claude-code-truth-serum-skill/
-├── SKILL.md                        ← Install as a Claude Code skill
 ├── CLAUDE.md                       ← Copy into any project's CLAUDE.md
+├── CURSOR.md                       ← Cursor IDE setup guide
+├── CODEX.md                        ← Codex CLI setup guide
 ├── README.md                       ← This file
 ├── EXAMPLES.md                     ← Real before/after examples
 ├── LICENSE                         ← MIT
-├── truth-serum.skill               ← Packaged for claude.ai upload
 ├── .claude-plugin/
 │   ├── plugin.json                 ← Plugin metadata
 │   └── marketplace.json            ← Marketplace listing
+├── skills/
+│   └── truth-serum/
+│       ├── SKILL.md                ← Canonical skill body (Claude Code / Claude.ai / Codex)
+│       └── agents/
+│           └── openai.yaml         ← Codex CLI metadata
 └── .cursor/
     └── rules/
-        └── truth-serum.mdc         ← Cursor IDE rules (alwaysApply: true)
+        └── truth-serum.mdc         ← Cursor IDE rule (alwaysApply: true)
 ```
 
 ---
