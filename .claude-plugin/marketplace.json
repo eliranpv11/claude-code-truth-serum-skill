@@ -1,6 +1,5 @@
 {
   "name": "truth-serum",
-  "id": "claude-code-truth-serum-skill",
   "owner": {
     "name": "eliranpv11"
   },
@@ -14,9 +13,6 @@
       "source": "./",
       "description": "Truth-first reporting, evidence-based claims, commit gate, documentation standards, and systematic mistake handling.",
       "version": "1.0.0",
-      "author": {
-        "name": "eliranpv11"
-      },
       "keywords": ["truth", "honesty", "production", "evidence", "reporting", "discipline"],
       "category": "workflow"
     }
