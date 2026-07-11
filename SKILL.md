@@ -5,7 +5,11 @@ description: >
   communication, evidence-based claims, and explicit approval before any
   commit, push, or deployment. Use when you need Claude to report reality
   accurately — not what it hopes is true — and stop rather than guess.
+  Triggers include "truth serum", "be honest", "report reality", "evidence-based".
+  Do NOT use for quick experiments where friction is unwanted.
 license: MIT
+metadata:
+  version: 1.0.0
 ---
 
 # Truth Serum

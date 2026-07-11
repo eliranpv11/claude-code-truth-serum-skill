@@ -1,6 +1,6 @@
 # Examples
 
-Real-world before/after examples showing the difference Truth Serum makes across four principles. The examples span five different languages — **Python**, **TypeScript**, **Go**, **Java**, and **Rust** — to demonstrate that Truth Serum is fundamentally **language-agnostic**. The same failure modes and the same corrections apply identically across stacks.
+Real-world before/after examples showing the difference Truth Serum makes across five principles. The examples span five different languages — **Python**, **TypeScript**, **Go**, **Java**, and **Rust** — to demonstrate that Truth Serum is fundamentally **language-agnostic**. The same failure modes and the same corrections apply identically across stacks.
 
 For each principle: the bad version is what an unconstrained assistant will typically produce; the good version is what Truth Serum produces.
 

@@ -190,12 +190,14 @@ Start a Claude Code session and give Claude a real task — for example, ask it 
 
 ```
 claude-code-truth-serum-skill/
+├── SKILL.md                        ← Flat-install skill body (Option E curl target)
 ├── CLAUDE.md                       ← Copy into any project's CLAUDE.md
 ├── CURSOR.md                       ← Cursor IDE setup guide
 ├── CODEX.md                        ← Codex CLI setup guide
 ├── README.md                       ← This file
 ├── EXAMPLES.md                     ← Real before/after examples
 ├── LICENSE                         ← MIT
+├── truth-serum.skill               ← Packaged for claude.ai upload
 ├── .claude-plugin/
 │   ├── plugin.json                 ← Plugin metadata
 │   └── marketplace.json            ← Marketplace listing
